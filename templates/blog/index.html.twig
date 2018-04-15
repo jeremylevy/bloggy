@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block mainTitle %} Bloggy {% endblock %}
+
+{% block mainSubtitle %} A blog powered by Symfony 4 {% endblock %}
+
+{% block body %}
+    <div class="container">
+      	<div class="row">
+	        <div class="col-lg-8 col-md-10 mx-auto">
+				{% for post in posts %}
+			    	<div class="post-preview">
+			        	<a href="{{ path('blog_show_post', {'slug': post.slug}) }}">
+			          		<h2 class="post-title">
+			            		{{ post.title }}
+			          		</h2>
+				          	<h3 class="post-subtitle">
+				            	{{ post.subtitle }}
+				          	</h3>
+			        	</a>
+			        	<p class="post-meta">Posted by
+			          		<a href="#">Start Bootstrap</a>
+			          		on {{ post.publishedAt|localizeddate('long', 'medium', null, 'UTC') }}
+			          	</p>
+			      	</div>
+			      	<hr>
+			    {% endfor %}
+			    <!-- Pager -->
+			  	<div class="clearfix">
+			    	{{ pagerfanta(posts, 'twitter_bootstrap4_translated', {routeName: 'blog_index_paginated'}) }}
+			  	</div>
+			</div>
+	    </div>
+	</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block mainTitle %} {{ post.title }} {% endblock %}
+
+{% block mainSubtitle %} {{ post.subtitle }} {% endblock %}
+
+{% block mainMeta %} <span class="meta">Posted by <a href="#">Start Bootstrap</a> on {{ post.publishedAt|localizeddate('long', 'medium', null, 'UTC') }}</span>  {% endblock %}
+
+{% block body %}
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    {{ post.content }}
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}
