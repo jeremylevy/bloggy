@@ -4,7 +4,7 @@
 
 {% block mainSubtitle %} {{ post.subtitle }} {% endblock %}
 
-{% block mainMeta %} <span class="meta">Posted by <a href="#">Start Bootstrap</a> on {{ post.publishedAt|localizeddate('long', 'medium', null, 'UTC') }}</span>  {% endblock %}
+{% block mainMeta %} <span class="meta">Posted by <a href="#">{{ post.author.fullName }}</a> on {{ post.publishedAt|localizeddate('long', 'medium', null, 'UTC') }}</span>  {% endblock %}
 
 {% block body %}
     <!-- Post Content -->
